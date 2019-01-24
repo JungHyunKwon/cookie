@@ -6,16 +6,6 @@ try {
 	(function() {
 		'use strict';
 
-		/**
-		 * @name 숫자 확인
-		 * @since 2017-12-06
-		 * @param {*} value
-		 * @return {boolean}
-		 */
-		function _isNumber(value) {
-			return typeof value === 'number' && !isNaN(value) && isFinite(value);
-		}
-
 		window.cookie = {
 			/**
 			 * @name cookie.set
@@ -32,7 +22,7 @@ try {
 				//문자일 때
 				if(typeof name === 'string' && typeof value === 'string') {
 					//숫자가 아닐 때
-					if(!_isNumber(day)) {
+					if(!(typeof day === 'number' && !isNaN(day) && isFinite(day))) {
 						day = -1;
 					}
 
