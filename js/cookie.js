@@ -7,12 +7,12 @@ try {
 		'use strict';
 
 		/**
-		 * @name isInt
+		 * @name 숫자 확인
 		 * @since 2017-12-06
 		 * @param {*} value
 		 * @return {boolean}
 		 */
-		function _isInt(value) {
+		function _isNumber(value) {
 			return typeof value === 'number' && !isNaN(value) && isFinite(value);
 		}
 
@@ -31,8 +31,8 @@ try {
 				
 				//문자일 때
 				if(typeof name === 'string' && typeof value === 'string') {
-					//정수가 아닐 때
-					if(!_isInt(day)) {
+					//숫자가 아닐 때
+					if(!_isNumber(day)) {
 						day = -1;
 					}
 
