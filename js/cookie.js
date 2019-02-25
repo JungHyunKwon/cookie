@@ -8,7 +8,6 @@ try {
 
 		window.cookie = {
 			/**
-			 * @name cookie.set
 			 * @since 2017-01-16
 			 * @param {string} name
 			 * @param {string} value
@@ -39,7 +38,6 @@ try {
 			},
 
 			/**
-			 * @name cookie.get
 			 * @since 2017-01-16
 			 * @param {string} name
 			 * @return {string}
