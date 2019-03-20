@@ -43,25 +43,25 @@ try {
 			 * @return {string}
 			 */
 			get : function(name) {
-				var cookie = document.cookie.split(';'),
+				var cookieSplit = document.cookie.split(';'),
 					result = '';
 				
 				//문자일 때
 				if(typeof name === 'string') {
-					var valueIndex = name.length + 1;
+					var startLength = name.length + 1;
 
-					for(var i = 0, cookieLength = cookie.length; i < cookieLength; i++) {
-						var cookieI = cookie[i];
+					for(var i = 0, cookieSplitLength = cookieSplit.length; i < cookieSplitLength; i++) {
+						var cookieSplitI = cookieSplit[i];
 						
 						//첫번째 글자가 공백일 때
-						while(cookieI.charAt(0) === ' ') {
-							cookieI = cookieI.substring(1);
+						while(cookieSplitI.charAt(0) === ' ') {
+							cookieSplitI = cookieSplitI.substring(1);
 							break;
 						}
 						
 						//쿠키값이 있을 때
-						if(cookieI.indexOf(name) > -1) {
-							result = unescape(cookieI.substring(valueIndex, cookieI.length));
+						if(cookieSplitI.indexOf(name) > -1) {
+							result = unescape(cookieSplitI.substring(startLength, cookieSplitI.length));
 							break;
 						}
 					}
