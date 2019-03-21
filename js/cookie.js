@@ -43,25 +43,27 @@ try {
 			 * @return {string}
 			 */
 			get : function(name) {
-				var cookieSplit = document.cookie.split(';'),
-					result = '';
+				var result = '';
 				
 				//문자일 때
 				if(typeof name === 'string') {
-					var startLength = name.length + 1;
+					name += '=';
 
-					for(var i = 0, cookieSplitLength = cookieSplit.length; i < cookieSplitLength; i++) {
-						var cookieSplitI = cookieSplit[i];
+					var nameLength = name.length,
+						splitCookie = document.cookie.split(';');
+
+					for(var i = 0, splitCookieLength = splitCookie.length; i < splitCookieLength; i++) {
+						var splitCookieI = splitCookie[i];
 						
 						//첫번째 글자가 공백일 때
-						while(cookieSplitI.charAt(0) === ' ') {
-							cookieSplitI = cookieSplitI.substring(1);
-							break;
+						while(splitCookieI.charAt(0) === ' ') {
+							splitCookieI = splitCookieI.substring(1);
 						}
-						
+
 						//쿠키값이 있을 때
-						if(cookieSplitI.indexOf(name) > -1) {
-							result = unescape(cookieSplitI.substring(startLength, cookieSplitI.length));
+						if(splitCookieI.indexOf(name) === 0) {
+							result = unescape(splitCookieI.substring(nameLength, splitCookieI.length));
+
 							break;
 						}
 					}
