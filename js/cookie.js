@@ -18,8 +18,8 @@ try {
 				var date = new Date(),
 					result = false;
 				
-				//1 보다 작을 때
-				if(day < 1) {
+				//숫자가 아닐 때
+				if(!(typeof day === 'number' && !isNaN(day) && isFinite(day))) {
 					day = -1;
 				}
 
