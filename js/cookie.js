@@ -48,16 +48,16 @@ try {
 					result = '';
 
 				for(var i = 0, splitCookieLength = splitCookie.length; i < splitCookieLength; i++) {
-					var splitCookieI = splitCookie[i];
+					var element = splitCookie[i];
 					
 					//첫번째 글자가 공백일 때
-					while(splitCookieI.charAt(0) === ' ') {
-						splitCookieI = splitCookieI.substring(1);
+					while(element.charAt(0) === ' ') {
+						element = element.substring(1);
 					}
 
 					//쿠키값이 있을 때
-					if(splitCookieI.indexOf(name) === 0) {
-						result = unescape(splitCookieI.substring(nameLength, splitCookieI.length));
+					if(element.indexOf(name) === 0) {
+						result = unescape(element.substring(nameLength, element.length));
 
 						break;
 					}
