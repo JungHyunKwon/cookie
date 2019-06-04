@@ -7,12 +7,12 @@ try {
 		'use strict';
 
 		/**
-		 * @name isNumeric
+		 * @name _isNumeric
 		 * @since 2017-12-06
 		 * @param {*} value
 		 * @return {boolean}
 		 */
-		function isNumeric(value) {
+		function _isNumeric(value) {
 			return typeof value === 'number' && !isNaN(value) && isFinite(value);
 		}
 
@@ -32,7 +32,7 @@ try {
 					var date = new Date();
 
 					//숫자가 아닐 때
-					if(!isNumeric(day)) {
+					if(!_isNumeric(day)) {
 						day = -1;
 					}
 
