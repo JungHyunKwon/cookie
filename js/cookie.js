@@ -7,22 +7,12 @@ try {
 		'use strict';
 
 		/**
-		 * @name isStringWithCharacter
-		 * @since 2017-12-06
-		 * @param {*} value
-		 * @return {boolean}
-		 */
-		function _isStringWithCharacter(value) {
-			return typeof value === 'string' && !!value.replace(/\s/g, '').length;
-		}
-
-		/**
 		 * @name isNumeric
 		 * @since 2017-12-06
 		 * @param {*} value
 		 * @return {boolean}
 		 */
-		function _isNumeric(value) {
+		function isNumeric(value) {
 			return typeof value === 'number' && !isNaN(value) && isFinite(value);
 		}
 
@@ -38,11 +28,11 @@ try {
 				var result = false;
 				
 				//문자일 때
-				if(_isStringWithCharacter(name) && _isStringWithCharacter(value)) {
+				if(typeof name === 'string' && typeof value === 'string') {
 					var date = new Date();
 
 					//숫자가 아닐 때
-					if(!_isNumeric(day)) {
+					if(!isNumeric(day)) {
 						day = -1;
 					}
 
@@ -68,7 +58,7 @@ try {
 				var result = '';
 				
 				//문자일 때
-				if(_isStringWithCharacter(name)) {
+				if(typeof name === 'string') {
 					name += '=';
 
 					var nameLength = name.length,
